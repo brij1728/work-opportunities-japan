@@ -7,7 +7,7 @@ export const Header = () => {
         <h1 className="font-bold text-xl">Work Opportunities in Japan</h1>
         <div>
           <Link href="/" className="px-4">Home</Link>
-          <Link href="/about" className="px-4">About Japan</Link>
+          <Link href="/about" className="px-4">About  Japan</Link>
         </div>
       </nav>
     </header>
