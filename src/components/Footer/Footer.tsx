@@ -1,66 +1,78 @@
 import Link from 'next/link';
 import React from 'react';
 
+const GitHubUrl = process.env.NEXT_PUBLIC_GITHUB_URL;
+const LinkedInUrl = process.env.NEXT_PUBLIC_LINKEDIN_URL;
+const TwitterUrl = process.env.NEXT_PUBLIC_TWITTER_URL;
+
+interface LinkItem {
+  name: string;
+  href: string;
+}
+
 export const Footer = () => {
-  const link = [
-	{
-	  name: 'About Us',
-	  href: '/about',
-	},
-	{
-	  name: 'Contact',
-	  href: '/contact',
-	},
-	{
-	  name: 'Privacy Policy',
-	  href: '/privacy',
-	},
+  const link: LinkItem[] = [
+    {
+      name: 'About Us',
+      href: '/about',
+    },
+    {
+      name: 'Contact',
+      href: '/contact',
+    },
+    {
+      name: 'Privacy Policy',
+      href: '/privacy',
+    },
   ];
 
-  const socialMediaLinks = [
-	{
-	  name: 'Twitter',
-	  href: 'https://www.twitter.com',
-	},
-	{
-	  name: 'Facebook',
-	  href: 'https://www.facebook.com',
-	},
-	{
-	  name: 'LinkedIn',
-	  href: 'https://www.linkedin.com',
-	},
+  const socialMediaLinks: LinkItem[] = [
+    {
+      name: 'Github',
+      href: GitHubUrl || '',
+    },
+    {
+      name: 'LinkedIn',
+      href: LinkedInUrl || '',
+    },
+    {
+      name: 'Twitter',
+      href: TwitterUrl || '',
+    },
   ];
 
   return (
-    <footer className="bg-gray-800 text-white py-8 px-4">
-      <div className="container mx-auto flex justify-between items-center">
+    <footer className="bg-gray-800 px-4 py-8 text-white">
+      <div className="container mx-auto flex items-center justify-between">
         <div>
           <h3 className="text-lg font-semibold">Work Opportunities in Japan</h3>
-          <p className="text-sm mt-2">Connecting you with the best career opportunities across Japan.</p>
+          <p className="mt-2 text-sm">
+            Connecting you with the best career opportunities across Japan.
+          </p>
         </div>
         <div>
           <h3 className="text-lg font-semibold">Quick Links</h3>
-		  <ul className="mt-2">
-			{link.map((item, index) => (
-			  <li key={index} className="mt-1">
-				<Link href={item.href}>{item.name}</Link>
-			  </li>
-			))}
-		  </ul>
+          <ul className="mt-2">
+            {link.map((item, index) => (
+              <li key={index} className="mt-1">
+                <Link href={item.href}>{item.name}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
         <div>
-		  <h3 className="text-lg font-semibold">Connect with us</h3>
-		  <ul className="mt-2">
-			{socialMediaLinks.map((item, index) => (
-				<li key={index} className="mt-1">
-					<Link href ={item.href}>{item.name}</Link>
-				</li>
-			))}
-		  </ul>
-		</div>
+          <h3 className="text-lg font-semibold">Connect with us</h3>
+          <ul className="mt-2">
+            {socialMediaLinks.map((item, index) => (
+              <li key={index} className="mt-1">
+                <Link href={item.href} target="_blank" scroll={true}>
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </footer>
   );
 };
-
