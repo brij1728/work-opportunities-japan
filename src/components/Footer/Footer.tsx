@@ -55,7 +55,13 @@ export const Footer = () => {
           <ul className="mt-2">
             {link.map((item, index) => (
               <li key={index} className="mt-1">
-                <Link href={item.href}>{item.name}</Link>
+                <Link
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.name}
+                </Link>
               </li>
             ))}
           </ul>
