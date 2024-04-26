@@ -65,7 +65,12 @@ export const Footer = () => {
           <ul className="mt-2">
             {socialMediaLinks.map((item, index) => (
               <li key={index} className="mt-1">
-                <Link href={item.href} target="_blank" scroll={true}>
+                <Link
+                  href={item.href}
+                  target="_blank"
+                  scroll={true}
+                  rel="noopener noreferrer"
+                >
                   {item.name}
                 </Link>
               </li>
