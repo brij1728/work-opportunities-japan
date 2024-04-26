@@ -68,7 +68,6 @@ export const Footer = () => {
                 <Link
                   href={item.href}
                   target="_blank"
-                  scroll={true}
                   rel="noopener noreferrer"
                 >
                   {item.name}
