@@ -1,16 +1,31 @@
 import Link from 'next/link';
 
 export const Header = () => {
+  const link = [
+    {
+      name: 'Home',
+      href: '/',
+    },
+    {
+      name: 'About Us',
+      href: '/about',
+    },
+  ];
+
   return (
-    <header className="bg-white shadow-md p-4">
-      <nav className="container mx-auto flex justify-between items-center">
-        <h1 className="font-bold text-xl">Work Opportunities in Japan</h1>
+    <header className="bg-white p-4 shadow-md">
+      <nav className="container mx-auto flex items-center justify-between">
+        <h1 className="text-xl font-bold">Work Opportunities in Japan</h1>
         <div>
-          <Link href="/" className="px-4">Home</Link>
-          <Link href="/about" className="px-4">About  Japan</Link>
+          <ul className="flex space-x-4">
+            {link.map((item, index) => (
+              <li key={index}>
+                <Link href={item.href}>{item.name}</Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </nav>
     </header>
   );
 };
-
