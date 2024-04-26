@@ -11,6 +11,7 @@ interface LinkItem {
 }
 
 export const Footer = () => {
+  console.log(GitHubUrl);
   const link: LinkItem[] = [
     {
       name: 'About Us',
