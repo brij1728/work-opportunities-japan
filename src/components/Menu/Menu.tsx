@@ -1,10 +1,13 @@
-import Link from 'next/link';
+'use client';
 
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 interface MenuProps {
   onLinkClick: () => void;
 }
 
 export const Menu: React.FC<MenuProps> = ({ onLinkClick }) => {
+  const pathName = usePathname();
   const links = [
     {
       name: 'Home',
@@ -22,7 +25,7 @@ export const Menu: React.FC<MenuProps> = ({ onLinkClick }) => {
         <li key={index}>
           <Link
             href={item.href}
-            className="text-blue-600 hover:text-blue-800"
+            className={`font-md rounded p-2 ${pathName === item.href ? 'bg-btn text-primary ' : 'text-secondary hover:text-btn '}`}
             onClick={onLinkClick}
           >
             {item.name}
